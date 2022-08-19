@@ -1,7 +1,18 @@
+let dragged = null;
 const inputTask = document.querySelector('.inputNewTask');
 const btnTask = document.querySelector('.btnNewTask');
-const list = document.querySelector('.list');
+const list = document.querySelector('.dropzone');
 let storage = [];
+
+document.addEventListener('dragstart', ({target}) => {dragged = target})
+document.addEventListener('dragover', (event) => {event.preventDefault()})
+document.addEventListener('drop', (event) => {
+  event.preventDefault()
+  if(event.target.className === 'dropzone') {
+    dragged.parentNode.removeChild(dragged);
+    event.target.appendChild(dragged);
+  }
+})
 
 const setStorage = () => {
   const task = document.querySelectorAll('.task');
@@ -35,8 +46,9 @@ const createNewElement = (element, value, nameClass) => {
 }
 
 const addList = (value, nameclass) => {
-  const delet = createNewElement('button', 'delet', 'delet');
-  const task = createNewElement('li', value, nameclass);
+  const delet = createNewElement('button', 'X', 'delet');
+  const task = createNewElement('li', value, nameclass,);
+  task.draggable = true;
   task.appendChild(delet)
   btnTask.addEventListener('click', setStorage);
   delet.addEventListener('click', deletTask);
