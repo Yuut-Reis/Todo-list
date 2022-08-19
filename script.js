@@ -1,31 +1,62 @@
 const inputTask = document.querySelector('.inputNewTask');
 const btnTask = document.querySelector('.btnNewTask');
 const list = document.querySelector('.list');
+let storage = [];
 
-
-
-const doneTask = ({target}) => {
-target.classList.toggle('completed')
+const setStorage = () => {
+  const task = document.querySelectorAll('.task');
+  if (!task.length) return false
+  storage = []
+  task.forEach((element) => {
+    const tasks = {
+      task: element.firstChild.nodeValue,
+      done: element.className === 'task completed' ? true : false,
+    }
+    storage.push(tasks)
+  });
+  localStorage.tasks = JSON.stringify(storage);
 }
-    
-const deletTask = ({target}, btn) => { 
-    target.parentNode.remove();
-  } 
 
+const doneTask = ({ target }) => {
+  target.classList.toggle('completed');
+  setStorage()
+}
 
-const addList = () => {
-  const delet = document.createElement('button');
-    delet.innerText = 'delet';
-    const task = document.createElement('li');
-    task.innerText = inputTask.value;
-    task.appendChild(delet)
-    delet.addEventListener('click', deletTask)
-   task.addEventListener('dblclick', doneTask)
-   list.appendChild(task);
-   inputTask.value = '' 
+const deletTask = ({ target }) => {
+  target.parentNode.remove();
+  setStorage();
+}
+
+const createNewElement = (element, value, nameClass) => {
+  const newElement = document.createElement(element);
+  newElement.innerText = value;
+  newElement.className = nameClass;
+  return newElement;
+}
+
+const addList = (value, nameclass) => {
+  const delet = createNewElement('button', 'delet', 'delet');
+  const task = createNewElement('li', value, nameclass);
+  task.appendChild(delet)
+  btnTask.addEventListener('click', setStorage);
+  delet.addEventListener('click', deletTask);
+  task.addEventListener('dblclick', doneTask);
+  list.appendChild(task);
+  inputTask.value = '';
 };
 
 
+const taskonload = () => {
+  if (localStorage.tasks) {
+    storage = JSON.parse(localStorage.tasks)
+    storage.forEach(({task, done}) => {
+      addList(task, done  ? 'task completed' : 'task');
+    })
+  } else {
+    storage = []
+  }
+}
 
 
-btnTask.addEventListener('click', addList);
+btnTask.addEventListener('click', () => { addList(inputTask.value, 'task') });
+window.onload = taskonload;
