@@ -2,3 +2,38 @@
   text-decoration: line-through
 }
 
+.newTask{
+    display: flex;
+    justify-content: center;
+}
+
+.ListTask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delet{
+    cursor: pointer;
+}
+
+li{
+ display: flex;
+ justify-content: space-between;
+ background-color: rgb(201, 201, 201);
+ height: 20px;
+width: 300px;
+ list-style: none;
+border: 1px solid black;
+}
+
+ol{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+h3{
+text-align: center;
+}
