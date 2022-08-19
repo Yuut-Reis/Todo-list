@@ -37,7 +37,7 @@ const setStorage = () => {
   task.forEach((element) => {
     const tasks = {
       task: element.firstChild.nodeValue,
-      done: element.className === 'task completed' ? true : false,
+      done: element.className === 'task completed' || 'task completed dragging' ? true : false,
     }
     storage.push(tasks)
   });
