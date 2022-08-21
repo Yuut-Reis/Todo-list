@@ -13,6 +13,27 @@ body {
 
 }
 
+.dropzone{
+    max-height: 55vh;
+    overflow-y: scroll;
+}
+
+.dropzone::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+.dropzone::-webkit-scrollbar-track {
+    background: transparent;
+    padding: 2px;
+
+  }
+  
+.dropzone::-webkit-scrollbar-thumb {
+    background-color: var(--magenta-color);
+
+  }
+
 .completed {
     text-decoration: line-through
 
@@ -42,8 +63,10 @@ body {
     color: var(--clean-color);
     display: flex;
     height: 70px;
+    scroll-snap-align: center;
     justify-content: space-around;
     width: 300px;
+    margin-right: 15px;
 
 }
 

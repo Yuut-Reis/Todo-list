@@ -6,30 +6,29 @@ const btnEnter = document.querySelector('.btnEnter');
 const clearInputTask = () => inputTask.value.trim();
 let storage = [];
 
-// Responsavel por capturar a posição do elemento que está sendo arrastado.
 const newposition = (ol, posY) => {
-  const tasknoSelect = ol.querySelectorAll('.task:not(.dragging)') // Todas as li que não estão sendo movimentadas
-  let result; // posição do mouse
-  for (let taskli of tasknoSelect) {   // percorrendo os elementos não arrastados
-    const li = taskli.getBoundingClientRect(); // ṕegando o tamanho da li e sua posição Y 
-    const liCenterY = li.y + li.height / 2; // li.y = posição no eixo y + li.height / 2
+  const tasknoSelect = ol.querySelectorAll('.task:not(.dragging)')
+  let result; 
+  for (let taskli of tasknoSelect) { 
+    const li = taskli.getBoundingClientRect(); 
+    const liCenterY = li.y + li.height / 2; 
     if (posY >= liCenterY) result = taskli;
   }
   changeStorage();
-  return result // posição do mouse
+  return result 
 }
 
-// Adicionando e removendo a classe dragging ao arrastar e soltar
+
 document.addEventListener('dragstart', ({ target }) => { target.classList.add('dragging') });
 document.addEventListener('dragend', ({ target }) => { target.classList.remove('dragging') });
-// Aplicando o evento que permite que a OL seja uma "Area soltavel"
+
 list.addEventListener('dragover', (event) => {
-  const dragging = document.querySelector('.dragging'); // item que está sendo arrastado
-  const after = newposition(list, event.clientY); // a nova posição que o item arrastado vai assumir
+  const dragging = document.querySelector('.dragging');
+  const after = newposition(list, event.clientY); 
   if (after) {
-    after.insertAdjacentElement('afterend', dragging) // fazendo o "append do item"
+    after.insertAdjacentElement('afterend', dragging);
   } else {
-    list.prepend(dragging); // se estiver fazio ele vai ser o primeiro item da lista 
+    list.prepend(dragging); 
   }
 })
 
