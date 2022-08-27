@@ -4,7 +4,9 @@
 
 🗒️ Um projeto classico no mundo da programação, ele foi desenvolvido com HTML, CSS e JavaScript.
 <hr>
-![](gif/siteExe.gif)
+
+![](/gif/siteExe.gif)
+
 <br>
 🚧 EM CONSTRUÇÃO 🚧
 <br>
