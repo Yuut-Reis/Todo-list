@@ -4,10 +4,10 @@
 
 🗒️ Um projeto classico no mundo da programação, ele foi desenvolvido com HTML, CSS e JavaScript.
 <hr>
-![](/gif/siteExe.gif)
+![](gif/siteExe.gif)
+<br>
 🚧 EM CONSTRUÇÃO 🚧
 <br>
-
 <strong>O link de acesso ao Git pages será inserido aqui</strong>
 <hr>
    🚀 <strong>Como executar o projeto</strong>
