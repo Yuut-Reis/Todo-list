@@ -4,9 +4,6 @@
 
 🗒️ Um projeto classico no mundo da programação, ele foi desenvolvido com HTML, CSS e JavaScript.
 <hr>
-
-![](/gif/siteExe.gif)
-
 <br>
 🚧 EM CONSTRUÇÃO 🚧
 <br>
@@ -69,6 +66,12 @@
 <details>
  <summary><strong>🔨 Ferramentas e Tecnologias </strong></summary><br />
 </details>
+<hr>
+<strong>🎥 Site Funcionando </strong>
+<br><br>
+
+![](/gif/siteExe.gif)
+
 <hr>
 Achou algo errado? Tem uma dúvida? Precisa de ajudar ou quer só conversar?
 <br>
