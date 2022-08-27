@@ -61,6 +61,7 @@ body {
     background-color: var(--gray-color);
     border-radius: 25px;
     color: var(--clean-color);
+    cursor: pointer;
     display: flex;
     height: 70px;
     scroll-snap-align: center;
@@ -75,6 +76,7 @@ body {
     border: 1px solid var(--clean-color);
     border-radius: 50%;
     color: var(--magenta-color);
+    cursor: pointer;
     font-size: 13px;
     height: 27px;
     width: 27px;
